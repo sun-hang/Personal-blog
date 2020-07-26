@@ -14,6 +14,9 @@ app.use(session({
     name: 'sessionId'
 }))
 
+// 验证令牌中间件
+app.use(require('./tokenMiddleware'));
+
 // 用于跨域的中间件
 app.use(cors({
     credentials: true,
@@ -47,7 +50,11 @@ app.use('/api/link', require('./api/link'));
 
 app.use('/api/tags', require('./api/tags'));
 
-app.use('/api/blog', require('./api/blog'))
+app.use('/api/blog', require('./api/blog'));
+
+app.use('/api/download', require('./api/download'))
+
+app.use('/api/upload', require('./api/upload'));
 
 app.use('/api/tagandbolg', require('./api/tagAndblog'));
 

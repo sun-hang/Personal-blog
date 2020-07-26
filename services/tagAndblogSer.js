@@ -7,8 +7,8 @@ const { add, updata, remove, getAll, getOne, findByPage } = require('./util');
  * @param {Number} tagid 
  * @param {Number} blogid 
  */
-module.exports.add = async (tagid, blogid) => {
-    return await add('tagAndblogDB', { tagid, blogid, ctime: getCTime() })
+module.exports.add = async (tagId, blogId) => {
+    return await add('tagAndblogDB', { tagId, blogId, ctime: getCTime() })
 }
 
 // 删

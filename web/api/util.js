@@ -61,7 +61,7 @@ module.exports.add = (DB, attrs, callback, name) => {
         let datas = [];
         for (const item of attrs) {
             let data = req.body[item];
-            if (!data) {
+            if (!data && data !== 0) {
                 res.send(resultHandle(`属性${item}不存在`))
                 return
             }

@@ -11,7 +11,7 @@ const { add, updata, remove, getAll, getOne, findByPage } = require('./util')
  * @param {String} content 
  * @param {String} name 
  */
-module.exports.add = async (content, name) => {
+module.exports.add = async (name, content) => {
     return await add('LinksDB', { name, link: content, ctime: getCTime() })
 }
 

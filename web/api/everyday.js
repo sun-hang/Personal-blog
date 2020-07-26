@@ -16,7 +16,7 @@ router.get('/:id', findId(everyday, 'name'))
 /**
  * 添加每日一句
  */
-router.post('/', add(everyday, ['content', 'name']))
+router.post('/', add(everyday, ['chatday', 'name']))
 
 /**
  * 修改每日一句

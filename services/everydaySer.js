@@ -9,8 +9,8 @@ const { add, updata, remove, getAll, getOne, findByPage } = require('./util')
  * @param {String} content 
  * @param {String} name 
  */
-module.exports.add = async (content, name) => {
-    return await add('everydayDB', { content, name, ctime: getCTime() })
+module.exports.add = async (chatday, name) => {
+    return await add('everydayDB', { chatday, name, ctime: getCTime() })
 }
 
 // 删

@@ -13,7 +13,7 @@ const { add, updata, remove, getAll, getOne, findByPage } = require('./util')
  * @param {String} name  作者名字
  */
 module.exports.add = async (title, tag, views, content, introduce, name) => {
-    return await add('blogDB',{ title, tag, views, content, introduce, name, utime: getCTime(), ctime: getCTime() })
+    return await add('blogDB', { title, tag, views, content, introduce, name, utime: getCTime(), ctime: getCTime() })
 }
 
 // 删
@@ -55,4 +55,8 @@ module.exports.findOne = async (id, title) => {
 
 module.exports.findByPage = async (page, limit) => {
     return await findByPage(blogDB, page, limit)
+}
+
+module.exports.where = async (where) => {
+    return await blogDB.findAll(where)
 }

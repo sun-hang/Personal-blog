@@ -10,7 +10,6 @@ module.exports.add = async function add(DBpath, attrs, callback) {
     // 获取数据模型
     const DB = require('../dao/' + DBpath);
     // 判断时候传入回调函数
-    console.log(attrs, callback)
     if (callback) {
         // 有函数执行并把属性对象传入
         const rlt = await callback(attrs)
@@ -30,7 +29,7 @@ module.exports.add = async function add(DBpath, attrs, callback) {
         }
     } catch (e) {
         // 可以添加错误日志
-        return '数据已存在'
+        return '请求太频繁'
     }
 
 }

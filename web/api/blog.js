@@ -11,10 +11,14 @@ const { find, findId, add, updata, remove } = require('./util')
  */
 router.get('/', find(blogSer, 'title'))
 
+
+
 /**
  * 按文章id或文章名进行查询
  */
 router.get('/:id', findId(blogSer, 'title'))
+
+
 
 /**
  * 添加一篇文章
@@ -58,7 +62,6 @@ async function tagHandle(tag, result) {
             }
         } else {
             // 如果数据库里有，获取标签id
-            console.log(tagResult)
             tagid = tagResult[0].id
         }
         // 这里添加博客和标签的映射
@@ -76,6 +79,15 @@ async function tagHandle(tag, result) {
 
 router.post('/', add(blogSer, ["title", "tag", "views", "content", "introduce", "name"], tagHandle, 'tag'))
 
+
+router.post(/^\/hot/, async (req, res, next) => {
+    let result = await blogSer.where(req.body);
+    res.send({
+        code: 0,
+        msg: '请求成功',
+        data: result
+    })
+})
 /**
  * 修改一篇文章
  */
