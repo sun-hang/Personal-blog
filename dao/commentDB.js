@@ -29,7 +29,7 @@ module.exports = sequelize.define('comment', {
         type: DataTypes.INTEGER
     },
     email: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
     ctime: {
         type: DataTypes.INTEGER,

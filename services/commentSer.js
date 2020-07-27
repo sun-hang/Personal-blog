@@ -78,7 +78,7 @@ module.exports.grouping = async (name) => {
 }
 
 module.exports.arbitrarily = async (where) => {
-    return await commentDB.findAll({ where });
+    return await commentDB.findAll(where);
 }
 
 module.exports.deteles = async (where) => {

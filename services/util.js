@@ -18,7 +18,7 @@ module.exports.add = async function add(DBpath, attrs, callback) {
             return rlt
         }
     }
-
+    console.log(attrs);
     try {
         // 添加数据
         const result = await DB.create(attrs)

@@ -60,3 +60,7 @@ module.exports.findByPage = async (page, limit) => {
 module.exports.deletes = async (where) => {
     const result = await tagAndblogDB.destroy({ where });
 }
+
+module.exports.where = async (where) => {
+    return await tagAndblogDB.findAll(where);
+}

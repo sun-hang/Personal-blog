@@ -51,3 +51,7 @@ module.exports.findOne = async (id, tag) => {
 module.exports.findByPage = async (page, limit) => {
     return await findByPage(tagsDB, page, limit)
 }
+
+module.exports.where = async (where) => {
+    return await tagsDB.findAll(where);
+}
