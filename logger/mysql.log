@@ -24120,3 +24120,309 @@ mysql [2020-07-28 HH-07-38] INFO: Executing (default): SELECT count(*) AS `count
  T3L9RE33NQT0VLB
 mysql [2020-07-28 HH-07-38] INFO: Executing (default): SELECT `id`, `chatday`, `name`, `ctime`, `deletedAt` FROM `chats` AS `chat` WHERE (`chat`.`deletedAt` IS NULL) ORDER BY `chat`.`ctime` DESC LIMIT 0, 1; 
  T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `chats` (`id` INTEGER NOT NULL auto_increment , `chatday` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `chats`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'chats' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `chats` CHANGE `chatday` `chatday` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `chats` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `chats` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `chats` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `chats` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `links` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `link` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `links`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'links' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `links` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `links` CHANGE `link` `link` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `links` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `links` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `links` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `tags` (`id` INTEGER NOT NULL auto_increment , `tag` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `tags`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tags' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tags` CHANGE `tag` `tag` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tags` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tags` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `tags` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255) NOT NULL, `content` TEXT NOT NULL, `introduce` TEXT NOT NULL, `tag` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `views` INTEGER NOT NULL, `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `blogs`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'blogs' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `title` `title` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `tag` `tag` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `views` `views` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `content` `content` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `introduce` `introduce` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `blogs` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `tag_blogs` (`id` INTEGER NOT NULL auto_increment , `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, `blogId` INTEGER, `tagId` INTEGER, UNIQUE `tag_blogs_tagId_blogId_unique` (`blogId`, `tagId`), PRIMARY KEY (`id`), FOREIGN KEY (`blogId`) REFERENCES `blogs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`tagId`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `tag_blogs`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tag_blogs' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tag_blogs' AND constraint_name = 'tag_blogs_ibfk_467' AND TABLE_SCHEMA = 'my_blog'; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` DROP FOREIGN KEY `tag_blogs_ibfk_467`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` ADD FOREIGN KEY (`blogId`) REFERENCES `blogs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tag_blogs' AND constraint_name = 'tag_blogs_ibfk_468' AND TABLE_SCHEMA = 'my_blog'; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` DROP FOREIGN KEY `tag_blogs_ibfk_468`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `tag_blogs` ADD FOREIGN KEY (`tagId`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `tag_blogs` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `email` VARCHAR(255), `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `admins`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `email` `email` VARCHAR(255); 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `loginId` `loginId` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `admins` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `admins` 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `comments` (`id` INTEGER NOT NULL auto_increment , `content` TEXT NOT NULL, `parentid` INTEGER NOT NULL, `blogid` INTEGER NOT NULL, `userName` VARCHAR(255) NOT NULL, `parentName` VARCHAR(255) NOT NULL, `userId` INTEGER, `email` VARCHAR(255), `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW FULL COLUMNS FROM `comments`; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'comments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `content` `content` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `parentid` `parentid` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `blogid` `blogid` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `userName` `userName` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `parentName` `parentName` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `email` `email` VARCHAR(255); 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): ALTER TABLE `comments` CHANGE `userId` `userId` INTEGER; 
+ T3L9RE33NQT0VLB
+mysql [2020-08-28 HH-07-25] INFO: Executing (default): SHOW INDEX FROM `comments` 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT count(*) AS `count` FROM `blogs` AS `blog` WHERE (`blog`.`deletedAt` IS NULL); 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `title`, `content`, `introduce`, `tag`, `name`, `views`, `ctime`, `utime`, `deletedAt` FROM `blogs` AS `blog` WHERE (`blog`.`deletedAt` IS NULL) ORDER BY `blog`.`ctime` DESC LIMIT 0, 10; 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT count(*) AS `count` FROM `chats` AS `chat` WHERE (`chat`.`deletedAt` IS NULL); 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `chatday`, `name`, `ctime`, `deletedAt` FROM `chats` AS `chat` WHERE (`chat`.`deletedAt` IS NULL) ORDER BY `chat`.`ctime` DESC LIMIT 0, 1; 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `name`, `link`, `ctime`, `deletedAt` FROM `links` AS `link` WHERE (`link`.`deletedAt` IS NULL); 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `tag`, `ctime`, `deletedAt` FROM `tags` AS `tag` WHERE (`tag`.`deletedAt` IS NULL); 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT count(*) AS `count` FROM `comments` AS `comment` WHERE (`comment`.`deletedAt` IS NULL); 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `content`, `parentid`, `blogid`, `userName`, `parentName`, `userId`, `email`, `ctime`, `utime`, `deletedAt` FROM `comments` AS `comment` WHERE (`comment`.`deletedAt` IS NULL) ORDER BY `comment`.`ctime` DESC LIMIT 0, 10; 
+ T3L9RE33NQT0VLB
+mysql [2020-10-28 HH-07-41] INFO: Executing (default): SELECT `id`, `title`, `content`, `introduce`, `tag`, `name`, `views`, `ctime`, `utime`, `deletedAt` FROM `blogs` AS `blog` WHERE (`blog`.`deletedAt` IS NULL) ORDER BY `blog`.`views` DESC LIMIT 10; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `chats` (`id` INTEGER NOT NULL auto_increment , `chatday` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `chats`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'chats' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `chats` CHANGE `chatday` `chatday` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `chats` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `chats` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `chats` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `chats` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `links` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `link` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `links`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'links' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `links` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `links` CHANGE `link` `link` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `links` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `links` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `links` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `tags` (`id` INTEGER NOT NULL auto_increment , `tag` VARCHAR(255) NOT NULL, `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `tags`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tags' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tags` CHANGE `tag` `tag` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tags` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tags` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `tags` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255) NOT NULL, `content` TEXT NOT NULL, `introduce` TEXT NOT NULL, `tag` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `views` INTEGER NOT NULL, `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `blogs`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'blogs' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `title` `title` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `tag` `tag` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `views` `views` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `content` `content` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `introduce` `introduce` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `blogs` CHANGE `name` `name` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `blogs` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `tag_blogs` (`id` INTEGER NOT NULL auto_increment , `ctime` INTEGER NOT NULL, `deletedAt` DATETIME, `blogId` INTEGER, `tagId` INTEGER, UNIQUE `tag_blogs_tagId_blogId_unique` (`blogId`, `tagId`), PRIMARY KEY (`id`), FOREIGN KEY (`blogId`) REFERENCES `blogs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`tagId`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `tag_blogs`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tag_blogs' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tag_blogs' AND constraint_name = 'tag_blogs_ibfk_469' AND TABLE_SCHEMA = 'my_blog'; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` DROP FOREIGN KEY `tag_blogs_ibfk_469`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` ADD FOREIGN KEY (`blogId`) REFERENCES `blogs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tag_blogs' AND constraint_name = 'tag_blogs_ibfk_470' AND TABLE_SCHEMA = 'my_blog'; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` DROP FOREIGN KEY `tag_blogs_ibfk_470`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `tag_blogs` ADD FOREIGN KEY (`tagId`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `tag_blogs` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `email` VARCHAR(255), `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `admins`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `email` `email` VARCHAR(255); 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `loginId` `loginId` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `admins` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW INDEX FROM `admins` 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): CREATE TABLE IF NOT EXISTS `comments` (`id` INTEGER NOT NULL auto_increment , `content` TEXT NOT NULL, `parentid` INTEGER NOT NULL, `blogid` INTEGER NOT NULL, `userName` VARCHAR(255) NOT NULL, `parentName` VARCHAR(255) NOT NULL, `userId` INTEGER, `email` VARCHAR(255), `ctime` INTEGER NOT NULL, `utime` INTEGER NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SHOW FULL COLUMNS FROM `comments`; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'comments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='my_blog' AND REFERENCED_TABLE_NAME IS NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-34] INFO: Executing (default): ALTER TABLE `comments` CHANGE `content` `content` TEXT NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `parentid` `parentid` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `blogid` `blogid` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `ctime` `ctime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `utime` `utime` INTEGER NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `userName` `userName` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `parentName` `parentName` VARCHAR(255) NOT NULL; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `email` `email` VARCHAR(255); 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `deletedAt` `deletedAt` DATETIME; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): ALTER TABLE `comments` CHANGE `userId` `userId` INTEGER; 
+ T3L9RE33NQT0VLB
+mysql [2020-18-28 HH-07-35] INFO: Executing (default): SHOW INDEX FROM `comments` 
+ T3L9RE33NQT0VLB
