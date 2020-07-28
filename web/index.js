@@ -15,6 +15,13 @@ app.use('*', (req, res, next) => {
     }
     next()
 })
+
+app.use(function (req, res, next) {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+});
 // 添加session中间件，用于验证验证码
 app.use(session({
     secret: 'sunshanfeng',
