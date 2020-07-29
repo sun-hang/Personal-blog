@@ -16,12 +16,13 @@ router.get('/', (req, res, next) => {
 
 function validateCaptcha(req, res, next) {
     let text = req.session.captcha;
-    if (req.method === 'POST' && req.baseUrl + req.path === '/api/comment/' && !text) {
-        next(Error('错误')) 
+
+    if (req.method === 'POST' && req.baseUrl + req.path === '/api/admin/login' && !text) {
+        next(Error('错误'))
         return;
     }
     let captcha = req.body.captcha;
-    if (captcha && captcha.toLowerCase() !== text) {
+    if (captcha && captcha.toLowerCase() == text) {
         next();
         req.session.text = '';
         return;

@@ -14,7 +14,7 @@ router.post('/where', async (req, res, next) => {
     return;
 })
 
-router.post('/', validateCaptcha, add(commentSer, ["content", "parentid", "blogid", "userName", "parentName", "email"]))
+router.post('/',  add(commentSer, ["content", "parentid", "blogid", "userName", "parentName", "email"]))
 
 router.put('/:id', updata(commentSer))
 

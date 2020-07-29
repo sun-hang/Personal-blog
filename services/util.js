@@ -83,7 +83,7 @@ module.exports.remove = async function remove(DBpath, id) {
     // 获取模型对象
     const DB = require('../dao/' + DBpath);
     // 查找数据
-    const result = await adminDB.findByPk(id);
+    const result = await DB.findByPk(id);
     // 没找到会返回null
     if (result === null) {
         return '该数据不存在'

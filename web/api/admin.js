@@ -3,7 +3,7 @@ const router = express.Router()
 const adminSer = require('../../services/adminSer')
 const { codeObj } = require('../../utils/webUtils')
 const { find, findId, add, updata, remove } = require('./util')
-
+const { validateCaptcha } = require('./captcha')
 router.get('/', find(adminSer, 'loginId'))
 
 router.get('/:id', findId(adminSer, 'loginId'))
@@ -12,7 +12,7 @@ router.get('/:id', findId(adminSer, 'loginId'))
 
 router.post('/', add(adminSer, ['loginId', 'loginPwd']))
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', validateCaptcha, async (req, res, next) => {
     if (!req.body.loginId) {
         res.send(codeObj(1, '账号不能为空', null))
         return;
