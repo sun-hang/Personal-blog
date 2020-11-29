@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
 const { mysqlLoger } = require('../logger')
-const sequelize = new Sequelize('my_blog', 'root', '1234', {
+let pass = '980529Ssf.'
+const sequelize = new Sequelize('my_blog', 'root', pass, {
     host: 'localhost',
     dialect: 'mysql',
     logging: (msg) => {
